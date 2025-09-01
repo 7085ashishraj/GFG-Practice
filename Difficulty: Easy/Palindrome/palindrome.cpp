@@ -3,12 +3,16 @@ class Solution {
     bool isPalindrome(int n) {
         // code here.
         if(n<0) return false;
-        int orig_num = n;
-        int rev = 0;
-        while(n>0){
-            rev = rev * 10  + n%10;
-            n/=10;
+        string str = to_string(n);
+        int start = 0;
+        int end = str.length()-1;
+        while(start < end){
+            if(str[start]!=str[end]){
+                return false;
+            }
+            start++;
+            end--;
         }
-        return (rev==orig_num);
+        return true;
     }
 };
