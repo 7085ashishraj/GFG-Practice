@@ -1,0 +1,18 @@
+class Solution {
+  public:
+    int dsum(int n){
+        int sum = 0;
+        for(int i = 1 ; i<= n ; i++){
+            if(n%i==0) sum+=i;
+        }
+        return sum;
+    }
+    long long sumOfDivisors(long long n) {
+        // Code here
+        long long sumi = 0;
+        for(int i=1;i<=n;i++){
+            sumi+= dsum(i);
+        }
+        return sumi;
+    }
+};
