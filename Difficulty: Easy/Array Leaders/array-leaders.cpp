@@ -1,30 +1,26 @@
 
 
 class Solution {
-    // Function to find the leaders in the array.
   public:
     vector<int> leaders(vector<int>& arr) {
-        // Code here
-        vector<int> ans;
+        // code here
         int n = arr.size();
         
-        //rightmost element is always a leader
-        int max_right = arr[n-1];
+        vector<int>suffixMax;
         
-        ans.push_back(max_right);
+        int maxi = arr[n-1];
         
-        //compare
+        suffixMax.push_back(maxi);
         
-        for(int i = n-2; i>=0 ; i--){
-            if(arr[i]>=max_right){
-                max_right = arr[i];
-                ans.push_back(max_right);
+        for(int i=n-2;i>=0;i--){
+            if(arr[i] >= maxi){
+                maxi = arr[i];
+                suffixMax.push_back(maxi);
+                
             }
         }
         
-        reverse(ans.begin(),ans.end());
-        return ans;
-        
-        
+        reverse(suffixMax.begin(), suffixMax.end());
+        return suffixMax;
     }
 };
